@@ -19,9 +19,14 @@ response = client.chat.completions.create(
     model="gpt-4o-mini",
     #store=True,
     messages=[
-        {"role": "user", "content": prompt}
-    ],
-    max_tokens=100
+        {"role": "system",
+        "content": "You are a helpful data science tutor."},
+        {"role": "user",
+        "content": "Qual é a diferença entre um loop for e um loop while?"}
+        ],
+
+    max_tokens=100,
+    temperature=0
 )
 
 # 
