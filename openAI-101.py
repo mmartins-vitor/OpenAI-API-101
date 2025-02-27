@@ -17,16 +17,17 @@ and transportation of goods. Cars are often associated with freedom, independenc
 client = OpenAI(api_key=api_key)
 response = client.chat.completions.create(
     model="gpt-4o-mini",
-    #store=True,
+    # Add a user and assistant message for in-context learning
     messages=[
         {"role": "system",
-        "content": "You are a helpful data science tutor."},
+        "content": "You are a helpful Python programming tutor."},
         {"role": "user",
-        "content": "Qual é a diferença entre um loop for e um loop while?"}
+        "content": "Explain what the min() function does."},
+        {"role": "assistant",
+        "content": "A função min() retorna o menor item de um iterável."},
+        {"role": "user",
+        "content": "Explain what the type() function does."}
         ],
-
-    max_tokens=100,
-    temperature=0
 )
 
 # 
